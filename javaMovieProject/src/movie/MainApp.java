@@ -9,13 +9,13 @@ public class MainApp {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("¿µÈ­ ¿¹¸Å ÇÁ·Î±×·¥ÀÌ ½ÇÇàµÇ¾ú½À´Ï´Ù.");
+        System.out.println("ì˜í™” ì˜ˆë§¤ í”„ë¡œê·¸ë¨ì´ ì‹¤í–‰ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
         Movie movies = new Movie();
         Seats seats = new Seats();
         Reservation reservation = new Reservation();
         
-        // ÆÄÀÏ¿¡¼­ ±âÁ¸ÀÇ ¿µÈ­ ¹× ¿¹¾à µ¥ÀÌÅÍ¸¦ ·ÎµåÇÕ´Ï´Ù.
+        // íŒŒì¼ì—ì„œ ê¸°ì¡´ì˜ ì˜í™” ë° ì˜ˆì•½ ë°ì´í„°ë¥¼ ë¡œë“œ
         movies.loadMoviesFromFile();
         reservation.loadReservationsFromFile();
 
@@ -26,9 +26,9 @@ public class MainApp {
         while (movie) {
 
             System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("1. ¿µÈ­ ¿¹¸ÅÇÏ±â | 2. ¿¹¸Å È®ÀÎÇÏ±â | 3. ¿¹¸Å Ãë¼ÒÇÏ±â | 4. °ü¸®ÀÚ ¸Ş´º·Î ÀÌµ¿ | 5. Á¾·á");
+            System.out.println("1. ì˜í™” ì˜ˆë§¤í•˜ê¸° | 2. ì˜ˆë§¤ í™•ì¸í•˜ê¸° | 3. ì˜ˆë§¤ ì·¨ì†Œí•˜ê¸° | 4. ê´€ë¦¬ì ë©”ë‰´ë¡œ ì´ë™ | 5. ì¢…ë£Œ");
             System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("¼±ÅÃ: ");
+            System.out.println("ì„ íƒ: ");
 
             keyCode = scan.nextInt();
             scan.nextLine();
@@ -45,32 +45,32 @@ public class MainApp {
                     break;
                 case 4:
                     if (loginAdmin(scan)) {
-                        System.out.println("°ü¸®ÀÚ ¸Ş´º·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+                        System.out.println("ê´€ë¦¬ì ë©”ë‰´ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
                         AdminMenu adminMenu = new AdminMenu();
                         adminMenu.displayMenu();
                     } else {
-                        System.out.println("°ü¸®ÀÚ ÀÎÁõ¿¡ ½ÇÆĞÇÏ¼Ì½À´Ï´Ù.");
+                        System.out.println("ê´€ë¦¬ì ì¸ì¦ì— ì‹¤íŒ¨í•˜ì…¨ìŠµë‹ˆë‹¤.");
                     }
                     break;
                 case 5:
                     movie = false;
                     break;
                 default:
-                    System.out.println("Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. 1 ~ 5¹ø Áß ´Ù½Ã ¼±ÅÃÇØÁÖ½Ê½Ã¿À.");
+                    System.out.println("ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. 1 ~ 5ë²ˆ ì¤‘ ë‹¤ì‹œ ì„ íƒí•´ì£¼ì‹­ì‹œì˜¤.");
             }
         }
         
-        // ÇÁ·Î±×·¥ Á¾·á Àü¿¡ ¿µÈ­ ¹× ¿¹¾à µ¥ÀÌÅÍ¸¦ ÆÄÀÏ¿¡ ÀúÀåÇÕ´Ï´Ù.
+        // í”„ë¡œê·¸ë¨ ì¢…ë£Œ ì „ì— ì˜í™” ë° ì˜ˆì•½ ë°ì´í„°ë¥¼ íŒŒì¼ì— ì €ì¥
         movies.saveMoviesToFile();
         reservation.saveReservationsToFile();
 
-        System.out.println("ÇÁ·Î±×·¥ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.");
+        System.out.println("í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
     }
 
     private static boolean loginAdmin(Scanner scan) {
-        System.out.println("°ü¸®ÀÚ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+        System.out.println("ê´€ë¦¬ì ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
         String adminId = scan.nextLine();
-        System.out.println("°ü¸®ÀÚ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+        System.out.println("ê´€ë¦¬ì ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
         String adminPw = scan.nextLine();
 
         return adminId.equals("dhehdtn") && adminPw.equals("1q2w3e!@#");
